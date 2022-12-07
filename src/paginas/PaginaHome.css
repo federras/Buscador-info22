@@ -1,0 +1,12 @@
+.body-container {
+    background-image: url("/public/img/fondo1-2.jpg");
+    background-size: cover;
+    padding-top: 1px;
+    min-height: calc(100vh - 106px);
+    /* width: 90vw; */
+}
+
+.sin-resultado-busqueda {
+    margin-left: 50px;
+    margin-top: 50px;
+}

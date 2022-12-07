@@ -1,0 +1,9 @@
+.logo-grande {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.logo-grande img {
+    max-width: 400px;
+}
