@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -16,7 +14,7 @@ const Buscador = ( {criterioBusqueda, setCriterioBusqueda, onBuscar} ) => {
 
   return (
     <Paper
-      component="paper"
+      component="div"
       sx={{ p: '2px 4px',
             display: 'flex',
             alignItems: 'center',
@@ -28,7 +26,8 @@ const Buscador = ( {criterioBusqueda, setCriterioBusqueda, onBuscar} ) => {
       <InputBase
         sx={{ ml: 1, flex: 1 }}
         placeholder="Buscar Noticia"
-        inputProps={{ 'aria-label': 'search google maps' }}
+        // inputProps={{ 'aria-label': 'search google maps' }}
+        role='searchbox'
         onChange={(event) => setCriterioBusqueda(event.target.value)}
         onKeyDownCapture={(e) => onEnter(e)}
       />
@@ -37,12 +36,18 @@ const Buscador = ( {criterioBusqueda, setCriterioBusqueda, onBuscar} ) => {
             <Button
               color='success'
               variant="contained"
+              title="button"
+              role="boton-ok"
               onClick={onBuscar}
               > Buscar
             </Button>
           </Stack>   
         : <Stack direction="row" spacing={1}>
-              <Button variant="contained" disabled>
+              <Button
+                variant="contained"
+                disabled
+                role="boton-no"
+                >
               Buscar
             </Button>
           </Stack>

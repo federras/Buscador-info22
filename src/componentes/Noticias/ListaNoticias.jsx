@@ -12,7 +12,7 @@ const Noticia = ({ articulo }) => {
     }
 
     return (
-        <a className='link-noticia' href={articulo.url} target="_blank">
+        <a className='link-noticia' href={articulo.url} target="_blank" rel="noreferrer">
             <article className='articulo-noticia'>
                 <section className='info-izquierda'>
                     <p className='source'>{articulo.source.name}</p>
@@ -21,7 +21,7 @@ const Noticia = ({ articulo }) => {
                     <p className='fecha'>Publicado el: {formatearFecha()}</p>
                 </section>
                 <figure className="img-derecha">
-                    <img src={articulo.urlToImage} />
+                    <img src={articulo.urlToImage} alt="link"/>
                 </figure>
             </article>
         </a>

@@ -3,11 +3,10 @@ import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
+  // Route,
 } from "react-router-dom";
 import PaginaHome from './paginas/PaginaHome';
 import ErrorPage from './componentes/Errores/ErrorPage';
-
 
 const router = createBrowserRouter([
   {

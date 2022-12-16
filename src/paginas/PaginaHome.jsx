@@ -69,7 +69,7 @@ const PaginaHome = () => {
                         onBuscar={onBuscar}
                         />
                     {isLoading && <Loading />}
-                    {(noticias && noticias.totalResults == 0) &&
+                    {(noticias && noticias.totalResults === 0) &&
                                     <Container>
                                         <h3 className="sin-resultado-busqueda">Búsqueda Sin Resultados</h3>
                                     </Container>
@@ -83,10 +83,8 @@ const PaginaHome = () => {
                                     onPaginacion={onPaginacion}
                                     paginaActual={paginaActual}
                                     />}
-
                 </section>
                 <Footer />
-
             </React.Fragment>
     )
 }
