@@ -44,7 +44,7 @@ const PaginaHome = () => {
         if (searchParams.get('q')) {
             onBuscar();
         }
-    },[searchParams]);
+    },[searchParams, onBuscar]);
 
 
     const onPaginacion = async (value) => {
