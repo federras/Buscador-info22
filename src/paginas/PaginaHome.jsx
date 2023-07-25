@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useState } from "react";
 import Buscador from "../componentes/Buscador/Buscador";
 import Footer from "../componentes/Footer/Footer";
@@ -27,18 +27,21 @@ const PaginaHome = () => {
         setCantidadPaginas(cantPag);
     }
 
-    const onBuscar = async (pagina=1) => {
-        setIsLoading(true);
-        if (criterioBusqueda) {
-            setSearchParams( { q: criterioBusqueda });        
-        }
-        const noticiasDelServidor = await (getNoticias(searchParams.get('q'), pagina));
-        setNoticias(noticiasDelServidor);
-        if (noticiasDelServidor.status === "ok") {
-            calcularCantidadPaginas(noticiasDelServidor.totalResults);
-        }
-        setIsLoading(false);
-    }
+    const onBuscar = useCallback (
+        async (pagina=1) => {
+            setIsLoading(true);
+            if (criterioBusqueda) {
+                setSearchParams( { q: criterioBusqueda });        
+            }
+            const noticiasDelServidor = await (getNoticias(searchParams.get('q'), pagina));
+            setNoticias(noticiasDelServidor);
+            if (noticiasDelServidor.status === "ok") {
+                calcularCantidadPaginas(noticiasDelServidor.totalResults);
+            }
+            setIsLoading(false);
+        },
+        [searchParams, criterioBusqueda, setSearchParams]
+    ); 
 
     useEffect(() => {
         if (searchParams.get('q')) {
