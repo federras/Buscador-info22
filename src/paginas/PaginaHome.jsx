@@ -21,13 +21,7 @@ const PaginaHome = () => {
     const [cantidadPaginas, setCantidadPaginas] = useState();
     const [paginaActual, setPaginaActual] = useState(1);
     const [searchParams, setSearchParams] = useSearchParams();
-
-    useEffect(() => {
-        if (searchParams.get('q')) {
-            onBuscar();
-        }
-    },[searchParams]);
-
+    
     const calcularCantidadPaginas = (cantNoticias) => {
         const cantPag = Math.ceil(cantNoticias/10);
         setCantidadPaginas(cantPag);
@@ -45,6 +39,12 @@ const PaginaHome = () => {
         }
         setIsLoading(false);
     }
+
+    useEffect(() => {
+        if (searchParams.get('q')) {
+            onBuscar();
+        }
+    },[searchParams]);
 
 
     const onPaginacion = async (value) => {
